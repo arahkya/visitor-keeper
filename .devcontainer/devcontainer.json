@@ -10,5 +10,6 @@
 				"ms-azuretools.vscode-docker"
 			]
 		}
-	}
+	},
+	"postCreateCommand": "bash .devcontainer/mssql/migrate-db.sh"
 }
