@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  dev:
+    image: mcr.microsoft.com/devcontainers/dotnet:7.0
+    volumes:
+      - ../../:/workspaces:cached
+    network_mode: service:mssql
+    command: sleep infinity
+  mssql:
+    image: 'mcr.microsoft.com/mssql/server:latest'
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password!123
+    ports:
+      - 1433:1433
+    
